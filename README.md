@@ -1,7 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # TV-Show Web App
-    This is a JavaScript capstone project about building a web application based on an external API. We selected an API, TV-Maze, that provides data about tv shows and then built the webapp around it. 
+
+This is a JavaScript capstone project about building a web application based on an external API. We selected an API, TV-Maze, that provides data about tv shows and then built the webapp around it. 
 
 ## Built With
 
