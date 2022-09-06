@@ -1,6 +1,7 @@
 import appleTouchIcon from '../assets/faviconio-logo/apple-touch-icon.png';
 import icon32 from '../assets/faviconio-logo/favicon-32x32.png';
 import icon16 from '../assets/faviconio-logo/favicon-16x16.png';
+import logo from '../assets/faviconio-logo/logo.svg';
 
 const addFavicon = () => {
   const favAppleTouchIcon = document.createElement('link');
@@ -24,6 +25,9 @@ const addFavicon = () => {
   window.document.head.appendChild(favAppleTouchIcon);
   window.document.head.appendChild(favIcon32);
   window.document.head.appendChild(favIcon16);
+
+  const logoImage = document.getElementsByClassName('logo')[0];
+  logoImage.src = logo;
 };
 
 export default addFavicon;
