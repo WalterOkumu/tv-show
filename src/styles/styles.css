@@ -1,5 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 body {
   font-family: 'Oswald', sans-serif;
 }
+
+
+ul {
+  list-style-type: none; 
+}
+
+header {
+  display: flex;
+  align-items: center; 
+}
+.logo {
+  max-width: 250px;
+  min-height: 100px;
+}
+
+#nav-menu {
+  display: flex; 
+  justify-content: space-around; 
+  width:90%
+}
+
+#nav-menu li {
+  color: gold;
+}
+
+.active:hover{
+  background-color: black;
+  color: white;
+  padding: 5px;
+}
+
+.form{
+  width: 5%;
+}
+
+.search {
+  padding: 10px;
+  margin-right: 24px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+}
+
+.search:focus {
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+}
+
+.welcome {
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #nav-menu {
+   margin-bottom: 2em;
+  }
+}
+
+
+
+
