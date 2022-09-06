@@ -71,4 +71,28 @@ header {
   #nav-menu {
     margin-bottom: 2em;
   }
+
+  .logo {
+    max-width: 150px;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #nav-menu {
+    margin-bottom: 2em;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 150px;
+    min-height: 50px;
+  }
 }
