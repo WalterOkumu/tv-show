@@ -70,6 +70,7 @@ header {
 
   #nav-menu {
     margin-bottom: 2em;
+<<<<<<< HEAD
   }
 
   .logo {
@@ -96,3 +97,7 @@ header {
     min-height: 50px;
   }
 }
+=======
+  }
+}
+>>>>>>> f080ecad20d6fcfe678de5b672080f304fb85f2e
