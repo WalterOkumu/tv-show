@@ -26,8 +26,13 @@ const addFavicon = () => {
   window.document.head.appendChild(favIcon32);
   window.document.head.appendChild(favIcon16);
 
-  const logoImage = document.getElementsByClassName('logo')[0];
+  const logoImage = document.createElement('img');
+  logoImage.className = 'logo';
   logoImage.src = logo;
+  logoImage.alt = 'tv-show-logo';
+
+  const header = document.getElementById('header');
+  header.prepend(logoImage);
 };
 
 export default addFavicon;
