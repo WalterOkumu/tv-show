@@ -1,4 +1,5 @@
 import heartIcon from '../assets/heart.svg';
+import commentsPopUp from './commentsPopUp';
 
 const populateMedia = (media, imagePath) => {
   const mediaCard = document.createElement('div');
@@ -41,6 +42,8 @@ const populateMedia = (media, imagePath) => {
   commentButton.className = 'comment-button';
   commentButton.type = 'button';
   commentButton.innerText = 'Comments';
+  commentButton.id = media.id;
+  commentButton.addEventListener('click', () => commentsPopUp(media, imagePath));
 
   const reservationButton = document.createElement('button');
   reservationButton.className = 'reservation-button';
