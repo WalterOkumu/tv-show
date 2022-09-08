@@ -102,7 +102,12 @@ body {
             .like-icon {
               width: 30px;
               cursor: pointer;
-              fill: blue;
+
+              svg {
+                path {
+                  fill: red;
+                }
+              }
             }
           }
 
@@ -194,6 +199,16 @@ body {
         .description {
           display: flex;
           justify-content: center;
+          font-size: 14px;
+        }
+
+        .comments-list {
+          display: flex;
+          flex-direction: column;
+          justify-self: center;
+          margin: 0;
+          padding: 0;
+          text-align: center;
           font-size: 14px;
         }
       }

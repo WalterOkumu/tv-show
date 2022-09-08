@@ -1,12 +1,14 @@
-const baseURL = process.env.INVOLVEMENT_API;
-const apiKey = process.env.INVOLVEMENT_API_KEY;
-const url = `${baseURL}/apps/${apiKey}/comments`;
+import fetchComments from './fetchComments';
 
-const getComments = () => fetch(url, {
-  method: 'GET',
-  headers: { 'Content-Type': 'application/json' },
-})
-  .then((response) => response.json())
-  .then((response) => response.results);
+const getComments = async (mediaID) => {
+  let data = await fetchComments(mediaID).finally((response) => response);
+
+  if (data.error) {
+    data = [];
+    data[0] = 'No comment found';
+    return data;
+  }
+  return data;
+};
 
 export default getComments;
