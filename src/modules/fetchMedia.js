@@ -1,5 +1,5 @@
-const getMedia = (url) => fetch(url)
+const fetchMedia = (url) => fetch(url)
   .then((response) => response.json())
   .then((response) => response.results);
 
-export default getMedia;
+export default fetchMedia;

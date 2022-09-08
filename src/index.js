@@ -1,5 +1,5 @@
 import addFavicon from './modules/addFavicon';
-import getMedia from './modules/getMedia';
+import fetchMedia from './modules/fetchMedia';
 import populateMedia from './modules/populateMedia';
 import getImages from './modules/getImages';
 import './styles/styles.scss';
@@ -11,7 +11,7 @@ const url = `${baseUrl}/trending/tv/week?api_key=${apiKey}`;
 window.onload = async () => {
   addFavicon();
   if (url !== '') {
-    const mediaList = await getMedia(url);
+    const mediaList = await fetchMedia(url);
     const imageList = await getImages(mediaList);
 
     const mainTag = document.getElementById('main');

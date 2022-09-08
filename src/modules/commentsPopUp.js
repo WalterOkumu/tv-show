@@ -1,7 +1,9 @@
 import closeIcon from '../assets/close.svg';
-// import postComment from './postComment';
+import getComments from './getComments';
 
-const commentsPopUp = (media, imagePath) => {
+const commentsPopUp = async (media, imagePath) => {
+  const commentData = await getComments(media.id);
+
   const commentsContainer = document.createElement('div');
   commentsContainer.className = 'comments-container';
 
@@ -41,7 +43,23 @@ const commentsPopUp = (media, imagePath) => {
   description.className = 'description';
   description.innerText = media.overview;
 
-  // const commentList = document.createElement('ul');
+  const commentList = document.createElement('ul');
+  commentList.className = 'comments-list';
+
+  const commentListItem = document.createElement('li');
+  commentListItem.className = 'comment-list-item';
+
+  for (let i = 0; i < commentData.length; i += 1) {
+    if (commentData[0] === 'No comment found') {
+      commentList.innerText = 'Comments (0)';
+      commentListItem.innerText = 'No comment found';
+      commentList.appendChild(commentListItem);
+    } else {
+      commentList.innerText = `Comments (${commentData.length})`;
+      commentListItem.innerText = `${commentData[i].creation_date} ${commentData[i].username}: ${commentData[i].comment}`;
+      commentList.appendChild(commentListItem);
+    }
+  }
 
   const newCommentContainer = document.createElement('div');
   newCommentContainer.className = 'new-comment';
@@ -82,6 +100,7 @@ const commentsPopUp = (media, imagePath) => {
 
   contentContainer.appendChild(title);
   contentContainer.appendChild(description);
+  contentContainer.appendChild(commentList);
 
   newCommentContainer.appendChild(newCommentTitle);
 
@@ -98,8 +117,6 @@ const commentsPopUp = (media, imagePath) => {
   commentsContainer.appendChild(commentsModal);
 
   document.body.appendChild(commentsContainer);
-
-  // console.log(media);
 };
 
 export default commentsPopUp;
