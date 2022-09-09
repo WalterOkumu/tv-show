@@ -1,7 +1,8 @@
 import heartIcon from '../assets/heart.svg';
 import commentsPopUp from './commentsPopUp';
+import postLikes from './postLikes';
 
-const populateMedia = (media, imagePath) => {
+const populateMedia = (media, imagePath, likes) => {
   const mediaCard = document.createElement('div');
   mediaCard.className = 'media-card';
 
@@ -22,18 +23,24 @@ const populateMedia = (media, imagePath) => {
 
   const cardTitleContainer = document.createElement('div');
   cardTitleContainer.className = 'card-title-container';
-
   const likeIcon = document.createElement('img');
   likeIcon.className = 'like-icon';
   likeIcon.alt = 'like-icon';
   likeIcon.src = heartIcon;
+  likeIcon.addEventListener('click', () => {
+    postLikes(media.id);
+    setTimeout(window.location.reload(), 2000);
+  });
 
   const likeTextDiv = document.createElement('div');
   likeTextDiv.className = 'like-text-container';
 
   const likeText = document.createElement('span');
   likeText.className = 'like-text';
-  likeText.innerText = '5 Likes';
+  if (likes === undefined) {
+    likes = '0';
+  }
+  likeText.innerText = `${likes} Likes`;
 
   const buttonContainer = document.createElement('div');
   buttonContainer.className = 'button-container';
