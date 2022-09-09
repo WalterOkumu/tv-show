@@ -1,5 +1,6 @@
 import closeIcon from '../assets/close.svg';
 import getComments from './getComments';
+import getCommentsCount from './getCommentsCount';
 import postComment from './postComment';
 import updateCommentsModal from './updateCommentsModal';
 
@@ -55,7 +56,7 @@ const commentsPopUp = async (media, imagePath) => {
     commentListItem.innerText = 'No comment found';
     commentList.appendChild(commentListItem);
   } else {
-    commentList.innerText = `Comments (${commentData.length})`;
+    commentList.innerText = `Comments (${getCommentsCount(commentData)})`;
     for (let i = 0; i < commentData.length; i += 1) {
       const commentListItem = document.createElement('li');
       commentListItem.className = 'comment-list-item';
