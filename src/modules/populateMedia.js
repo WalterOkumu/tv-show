@@ -27,9 +27,9 @@ const populateMedia = (media, imagePath, likes) => {
   likeIcon.className = 'like-icon';
   likeIcon.alt = 'like-icon';
   likeIcon.src = heartIcon;
-  likeIcon.addEventListener('click', () => {
-    postLikes(media.id);
-    setTimeout(window.location.reload(), 2000);
+  likeIcon.addEventListener('click', async () => {
+    await postLikes(media.id);
+    setTimeout(window.location.reload(), 3000);
   });
 
   const likeTextDiv = document.createElement('div');
