@@ -1,5 +1,7 @@
 import closeIcon from '../assets/close.svg';
 import getComments from './getComments';
+import postComment from './postComment';
+import updateCommentsModal from './updateCommentsModal';
 
 const commentsPopUp = async (media, imagePath) => {
   const commentData = await getComments(media.id);
@@ -46,16 +48,17 @@ const commentsPopUp = async (media, imagePath) => {
   const commentList = document.createElement('ul');
   commentList.className = 'comments-list';
 
-  const commentListItem = document.createElement('li');
-  commentListItem.className = 'comment-list-item';
-
-  for (let i = 0; i < commentData.length; i += 1) {
-    if (commentData[0] === 'No comment found') {
-      commentList.innerText = 'Comments (0)';
-      commentListItem.innerText = 'No comment found';
-      commentList.appendChild(commentListItem);
-    } else {
-      commentList.innerText = `Comments (${commentData.length})`;
+  if (commentData[0] === 'No comment found') {
+    const commentListItem = document.createElement('li');
+    commentListItem.className = 'comment-list-item';
+    commentList.innerText = 'Comments';
+    commentListItem.innerText = 'No comment found';
+    commentList.appendChild(commentListItem);
+  } else {
+    commentList.innerText = `Comments (${commentData.length})`;
+    for (let i = 0; i < commentData.length; i += 1) {
+      const commentListItem = document.createElement('li');
+      commentListItem.className = 'comment-list-item';
       commentListItem.innerText = `${commentData[i].creation_date} ${commentData[i].username}: ${commentData[i].comment}`;
       commentList.appendChild(commentListItem);
     }
@@ -87,9 +90,16 @@ const commentsPopUp = async (media, imagePath) => {
   submitNewComment.className = 'submit-comment-button';
   submitNewComment.type = 'button';
   submitNewComment.innerText = 'Comment';
-  // submitNewComment.addEventListener('click', () => {
-  //   postComment(media.id, newCommentName.value, newCommentInsights.value);
-  // });
+  submitNewComment.addEventListener('click', () => {
+    if (newCommentName.value !== '' || newCommentInsights.value !== '') {
+      postComment(media.id, newCommentName.value, newCommentInsights.value);
+      newCommentName.value = '';
+      newCommentInsights.value = '';
+      setTimeout(async () => {
+        await updateCommentsModal(media.id);
+      }, 3000);
+    }
+  });
 
   closeIconDiv.appendChild(closeIconImage);
 

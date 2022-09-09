@@ -2,15 +2,15 @@ const baseURL = process.env.INVOLVEMENT_API;
 const apiKey = process.env.INVOLVEMENT_API_KEY;
 const url = `${baseURL}/apps/${apiKey}/comments`;
 
-const postComment = (mediaID, username, comment) => fetch(url, {
+const postComment = async (mediaID, usernameData, commentData) => fetch(url, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: {
+  body: JSON.stringify({
     item_id: mediaID,
-    username,
-    comment,
-  },
+    username: usernameData,
+    comment: commentData,
+  }),
 })
-  .then((response) => response.json());
+  .then((response) => response);
 
 export default postComment;
