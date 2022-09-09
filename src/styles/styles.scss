@@ -101,7 +101,11 @@ body {
 
             .like-icon {
               width: 30px;
+              height: 30px;
+              padding: 2px;
               cursor: pointer;
+              background: goldenrod;
+              transition: width 2s;
 
               svg {
                 path {
@@ -118,6 +122,8 @@ body {
 
             .like-text {
               font-size: 12px;
+              border: 1px dashed goldenrod;
+              padding: 2px;
             }
           }
         }
