@@ -1,8 +1,8 @@
+import './styles/styles.scss';
 import addFavicon from './modules/addFavicon';
 import fetchMedia from './modules/fetchMedia';
 import populateMedia from './modules/populateMedia';
 import getImages from './modules/getImages';
-import './styles/styles.scss';
 import getLikes from './modules/getLikes';
 
 const baseUrl = process.env.BASE_URL;
