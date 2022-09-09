@@ -11,7 +11,7 @@ This is a JavaScript capstone project about building a web application based on 
 
 ## Live Demo
 
-[Live Demo Link](https://walterokumu.github.io/tv-show/)
+[Live Demo Link](https://walterokumu.github.io/tv-show/dist)
 
 ## Getting Started
 
