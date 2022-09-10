@@ -23,6 +23,7 @@ const populateMedia = (media, imagePath, likes) => {
 
   const cardTitleContainer = document.createElement('div');
   cardTitleContainer.className = 'card-title-container';
+
   const likeIcon = document.createElement('img');
   likeIcon.className = 'like-icon';
   likeIcon.alt = 'like-icon';
