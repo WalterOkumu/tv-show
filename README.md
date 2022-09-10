@@ -21,6 +21,8 @@ This is a JavaScript capstone project about building a web application based on 
     > cd tv-show
     > npm install or yarn install
     > npm start or yarn start
+    
+  [View the Video here](https://drive.google.com/file/d/1VnFu_23J2RPV9KM346UWXLpNIxEJAtuF/view?usp=sharing)  
 
 ## Authors
 
