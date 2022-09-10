@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+$boxShadow: 3px 4px 5px 0 rgba(0, 0, 0, 0.75);
+$removeBoxShadow: 0 0 0 0 rgba(0, 0, 0, 0);
+
+body {
+  font-family: 'Oswald', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  ul {
+    list-style-type: none;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      max-width: 250px;
+      min-height: 100px;
+    }
+
+    #nav-menu {
+      display: flex;
+      justify-content: space-around;
+      width: 90%;
+
+      li {
+        color: gold;
+      }
+
+      .nav-menu-link:hover {
+        background-color: black;
+        color: white;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .welcome {
+    text-align: center;
+  }
+
+  @media (max-width: 400px) {
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #nav-menu {
+      margin-bottom: 2em;
+    }
+  }
+
+  main {
+    padding: 5px;
+    position: relative;
+    padding-bottom: 60px;
+
+    .media-container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+
+      .media-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        width: auto;
+        gap: 5px;
+        padding: 10px;
+
+        .image-container {
+          .card-image {
+            width: 200px;
+            height: 280px;
+          }
+        }
+
+        .card-details {
+          .card-title-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+
+            .card-title {
+              font-size: 18px;
+            }
+
+            .like-icon {
+              width: 30px;
+              height: 30px;
+              padding: 2px;
+              cursor: pointer;
+              background: goldenrod;
+              transition: width 2s;
+
+              svg {
+                path {
+                  fill: red;
+                }
+              }
+            }
+          }
+
+          .like-text-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .like-text {
+              font-size: 12px;
+              border: 1px dashed goldenrod;
+              padding: 2px;
+            }
+          }
+        }
+
+        .button-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .comment-button {
+            box-shadow: $boxShadow;
+            background-color: white;
+            height: 35px;
+            width: 100px;
+            cursor: pointer;
+            border: 3px solid black;
+          }
+
+          .reservation-button {
+            box-shadow: $boxShadow;
+            background-color: white;
+            height: 35px;
+            width: 100px;
+            cursor: pointer;
+            border: 3px solid black;
+          }
+        }
+      }
+    }
+  }
+
+  .comments-container {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .comments-popup {
+      background-color: #fefefe;
+      margin: 2% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+
+      .header-image-container {
+        display: flex;
+        justify-content: center;
+
+        .comments-image {
+          width: 180px;
+        }
+      }
+
+      .close-icon-container {
+        display: flex;
+        justify-content: flex-end;
+
+        .comments-close-icon {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          cursor: pointer;
+          width: 30px;
+        }
+      }
+
+      .content-container {
+        .tv-title {
+          display: flex;
+          justify-content: center;
+          font-size: 18px;
+        }
+
+        .description {
+          display: flex;
+          justify-content: center;
+          font-size: 14px;
+        }
+
+        .comments-list {
+          display: flex;
+          flex-direction: column;
+          justify-self: center;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+
+      .new-comment {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .new-comment-title {
+          text-align: center;
+        }
+
+        .new-comment-form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .new-comment-name {
+            height: 30px;
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+          }
+
+          .new-comment-insights {
+            height: 30px;
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+          }
+
+          .submit-comment-button {
+            box-shadow: $boxShadow;
+            height: 30px;
+            color: black;
+            background-color: white;
+            border: 4px solid black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
+
+    .footer-text {
+      font-size: 15px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .footer-block {
+      display: flex;
+      justify-content: flex-end;
+      background-color: grey;
+    }
+  }
+}
